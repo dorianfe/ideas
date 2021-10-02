@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+{% block main %}
+    <h2>Our ideas:</h2>
+    {% for idea in ideas %}
+        <div>
+            <a href="{{ path('detail', {'id' : idea.id }) }}"> {{ idea.getTitle }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block title %} {% endblock %}

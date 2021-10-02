@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    <h2>{{ idea.getTitle }}</h2>
+    <div>{{ idea.getDescription }}</div>
+    <div>{{ idea.getAuthor }}</div>
+    <div>{{ idea.getDateCreated|date("m/d/Y") }}</div>
+
+{% endblock %}
+
+    {% block title %}{{ idea.getTitle }} | {{ parent() }}{% endblock %}

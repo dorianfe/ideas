@@ -5,7 +5,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class MainController extends AbstractController
 {
     /**
@@ -25,7 +24,15 @@ class MainController extends AbstractController
         $ideas = ["voyage", "lecture", "jeux"];
 
         return $this->render("main/test.html.twig", [
-            "ideas" =>$ideas
+            "ideas" =>$ideas,
         ]);
+    }
+
+    /**
+     * @Route ("/contact", name="contact")
+     */
+    public function contact()
+    {
+        return $this->render("main/contact-us.html.twig");
     }
 }

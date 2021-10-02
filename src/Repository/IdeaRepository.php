@@ -19,6 +19,13 @@ class IdeaRepository extends ServiceEntityRepository
         parent::__construct($registry, Idea::class);
     }
 
+     public function findRecentIdea()
+     {
+        $em = $this->getEntityManager();
+        $dql = "SELECT i
+                FROM App\Entity\Idea i";
+     }
+
     // /**
     //  * @return Idea[] Returns an array of Idea objects
     //  */

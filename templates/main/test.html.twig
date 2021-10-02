@@ -1,12 +1,15 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-<h1>Another test page using twig.</h1>
+    <h1>Another test page using twig.</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi beatae deserunt dignissimos eligendi eveniet,
         fugiat fugit minus nam, nihil nisi perspiciatis quasi quia quos, repellendus tempore ullam voluptatibus
         voluptatum?</p>
 
-    {{ ideas|length }}
+    {{ ideas|join(', ') }}
+    {% for idea in ideas %}
+        <p>{{ loop.index }}:{{ idea }}</p>
+    {% endfor %}
 
 {% endblock %}
 
