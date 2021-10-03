@@ -15,7 +15,7 @@ class IdeaController extends AbstractController
     public function list()
     {
         $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);
-        $ideas = $ideaRepo->findRecentIdea();
+        $ideas = $ideaRepo->findRecentIdeas();
 
 
         return $this->render("idea/list.html.twig", [
