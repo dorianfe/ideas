@@ -1,0 +1,30 @@
+body{
+    background-color: #deb887;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana, sans-serif;
+    font-size: 20px;
+}
+div {
+    text-align: justify;
+}
+
+footer{
+    text-align: justify;
+}
+
+li {
+    float: left;
+}
+
+a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}

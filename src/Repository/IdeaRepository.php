@@ -26,7 +26,7 @@ class IdeaRepository extends ServiceEntityRepository
                 FROM App\Entity\Idea i
                 WHERE i.id >= 1 ";
         $query = $em->createQuery($dql);
-        $query->setMaxResults(4);
+        $query->setMaxResults(5);
         return $query->getResult();
     }
 
