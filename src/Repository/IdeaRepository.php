@@ -21,6 +21,17 @@ class IdeaRepository extends ServiceEntityRepository
 
     public function findRecentIdeas()
     {
+//DB request using Query Builder
+        $qb = $this->createQueryBuilder('i');
+        $qb->andWhere('i.isPublished = true')->addOrderBy('i.id', 'DESC');
+        $qb->setMaxResults(5);
+        $query = $qb->getQuery();
+        return $query->getResult();
+
+    }
+
+    // //DB request using Doctrine Query Language (dql)
+    /*
         $em = $this->getEntityManager();
         $dql = "SELECT i
                 FROM App\Entity\Idea i
@@ -29,7 +40,7 @@ class IdeaRepository extends ServiceEntityRepository
         $query->setMaxResults(5);
         return $query->getResult();
     }
-
+*/
     // /**
     //  * @return Idea[] Returns an array of Idea objects
     //  */

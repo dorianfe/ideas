@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Idea;
+use App\Form\IdeaType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IdeaController extends AbstractController
@@ -38,19 +40,30 @@ class IdeaController extends AbstractController
     /**
      * @Route ("/idea/add", name="add")
      */
-    public function add(EntityManagerInterface $em)
+    public function add(EntityManagerInterface $em, Request $request)
     {
         $idea = new Idea();
-        $idea->setAuthor("Dodo");
-        $idea->setDescription("Try got get a job if possible as a developer. Websites could be a good start.");
-        $idea->setTitle("Find a job.");
+        //Hydrate dateCreated field automatically for example, since this is not up to the user to fill.
         $idea->setDateCreated(new \DateTime());
-        $idea->setIsPublished(true);
 
-        $em->persist($idea);
-        $em->flush();
+        $ideaform = $this->createForm(IdeaType::class, $idea);
 
-        return $this->render("idea/add");
+
+        $ideaform->handleRequest($request);
+        if ($ideaform->isSubmitted()) {
+            $idea->setIsPublished(true);
+            $em->persist($idea);
+            $em->flush();
+
+            $this->addFlash('success', 'Your idea was submitted');
+            return $this->redirectToRoute('detail', [
+                'id' => $idea->getId()
+            ]);
+        }
+
+        return $this->render("idea/add.html.twig", [
+            "ideaForm" => $ideaform->createView()
+        ]);
     }
 
 }

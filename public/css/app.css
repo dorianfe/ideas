@@ -28,3 +28,17 @@ a {
     padding: 8px;
     background-color: #dddddd;
 }
+.flash {
+    padding: 20px;
+    display: block;
+    font-size: 24px
+}
+
+.flash-success {
+    background-color: yellowgreen;
+    color: #FFFFFF;
+}
+
+.flash-error {
+    background-color: red;
+}
