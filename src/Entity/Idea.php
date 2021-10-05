@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\IdeaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @UniqueEntity(fields={"title"})
  * @ORM\Entity(repositoryClass=IdeaRepository::class)
  */
 class Idea
@@ -18,11 +21,14 @@ class Idea
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Add a title to your idea")
+     * @Assert\Length(max=255, maxMessage="Your title exceeds 255 characteres")
      * @ORM\Column(type="string", length=250, unique=true)
      */
     private $title;
 
     /**
+     * @Assert\Length(min="5", minMessage="Your description must at least be 5 characters")
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;

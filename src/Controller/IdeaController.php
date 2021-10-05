@@ -48,14 +48,14 @@ class IdeaController extends AbstractController
 
         $ideaform = $this->createForm(IdeaType::class, $idea);
 
-
         $ideaform->handleRequest($request);
-        if ($ideaform->isSubmitted()) {
+
+        if ($ideaform->isSubmitted() && $ideaform->isValid()) {
             $idea->setIsPublished(true);
             $em->persist($idea);
             $em->flush();
-
             $this->addFlash('success', 'Your idea was submitted');
+
             return $this->redirectToRoute('detail', [
                 'id' => $idea->getId()
             ]);
