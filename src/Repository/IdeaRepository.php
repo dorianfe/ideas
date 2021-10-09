@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Idea;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,12 +22,16 @@ class IdeaRepository extends ServiceEntityRepository
 
     public function findRecentIdeas()
     {
-//DB request using Query Builder
+        //DB request using Query Builder
         $qb = $this->createQueryBuilder('i');
-        $qb->andWhere('i.isPublished = true')->addOrderBy('i.id', 'DESC');
-        $qb->setMaxResults(5);
+        $qb->andWhere('i.isPublished = true')
+            ->join('i.categories', 'c')
+            -> addSelect('c')
+            ->addOrderBy('i.id', 'ASC');
+
+        $qb->setMaxResults(50);
         $query = $qb->getQuery();
-        return $query->getResult();
+        return new Paginator($query);
 
     }
 
