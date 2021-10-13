@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Idea;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,11 +21,11 @@ class IdeaType extends AbstractType
                 "label" => "Describe your idea "
             ])
             ->add('author', null, [
-                "label" => "username "
+                'label' => 'username '
             ])
-            ->add('category', null, [
-                "label" => "Category ",
-                "choice_label" => "name"
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'name'
             ]);
     }
 
