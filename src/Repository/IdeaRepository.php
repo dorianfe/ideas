@@ -20,13 +20,13 @@ class IdeaRepository extends ServiceEntityRepository
         parent::__construct($registry, Idea::class);
     }
 
-    public function findRecentIdeas()
+    public function findIdeasAndCategory()
     {
         //DB request using Query Builder
         $qb = $this->createQueryBuilder('i');
         $qb->andWhere('i.isPublished = true')
-            ->join('i.categories', 'c')
-            -> addSelect('c')
+            ->join('i.category', 'c')
+            ->addSelect('c')
             ->addOrderBy('i.id', 'ASC');
 
         $qb->setMaxResults(50);

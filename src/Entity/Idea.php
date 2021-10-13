@@ -55,6 +55,7 @@ class Idea
      */
     private $category;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -138,6 +139,22 @@ class Idea
     public function setDateCreated($dateCreated): void
     {
         $this->dateCreated = $dateCreated;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category): void
+    {
+        $this->category = $category;
     }
 
 }

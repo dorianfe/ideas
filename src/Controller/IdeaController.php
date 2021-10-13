@@ -17,7 +17,7 @@ class IdeaController extends AbstractController
     public function list()
     {
         $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);
-        $ideas = $ideaRepo->findRecentIdeas();
+        $ideas = $ideaRepo->findIdeasAndCategory();
 
 
         return $this->render("idea/list.html.twig", [
@@ -32,6 +32,10 @@ class IdeaController extends AbstractController
     {
         $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);
         $ideas = $ideaRepo->find($id);
+
+        if(empty($idea)){
+            throw $this->createNotFoundException();
+        }
 
         return $this->render("idea/detail.html.twig", [
             "idea" => $ideas]);
@@ -66,4 +70,18 @@ class IdeaController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/idea/delete/{id}", name="delete", requirements={"id": "\d+"})
+     */
+    public function delete($id, EntityManagerInterface $em)
+    {
+        $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);
+        $idea = $ideaRepo->find($id);
+
+        $em->remove($idea);
+        $em->flush();
+
+        $this->addFlash('success', "the idea was successfully deleted");
+        return $this->redirectToRoute('home');
+    }
 }

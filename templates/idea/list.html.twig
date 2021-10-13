@@ -3,8 +3,9 @@
     <h2>Our ideas:</h2>
     {% for idea in ideas %}
         <div>
-            <a href="{{ path('detail', {'id' : idea.id }) }}"> {{ idea.getTitle }} ({{ idea.categories | length }}
-                categories)</a>
+            <a href="{{ path('detail', {'id': idea.id}) }}" title="More details on {{ idea.title }}">
+                <h5>{{ idea.category.name }}</h5>{{ idea.title }}
+            </a>
 
         </div>
     {% endfor %}

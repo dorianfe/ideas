@@ -19,7 +19,7 @@ class Category
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $name;
 
@@ -28,7 +28,10 @@ class Category
      */
     private $ideas;
 
-
+    public function __construct()
+    {
+        $this->ideas = new ArrayCollection();
+    }
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -56,14 +59,17 @@ class Category
     private $others;
 
 
-    public function __construct()
-    {
-        $this->ideas = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     public function getName(): ?string
@@ -149,7 +155,7 @@ class Category
     /**
      * @param mixed $ideas
      */
-    public function setIdeas($ideas): void
+    public function setIdeas(ArrayCollection $ideas): void
     {
         $this->ideas = $ideas;
     }
