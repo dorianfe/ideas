@@ -46,6 +46,8 @@ class IdeaController extends AbstractController
      */
     public function add(EntityManagerInterface $em, Request $request)
     {
+        $this->denyAccessUnlessGranted("ROLE_USER");
+
         $idea = new Idea();
         //Hydrate dateCreated field automatically for example, since this is not up to the user to fill.
         $idea->setDateCreated(new \DateTime());
