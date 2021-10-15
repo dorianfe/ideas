@@ -43,4 +43,10 @@ class UserController extends AbstractController
     {
         return $this->render('user/login.html.twig');
     }
+
+    //handled by Symfony
+    /**
+     * @Route ("/logout", name="logout")
+     */
+    public function logout(){}
 }

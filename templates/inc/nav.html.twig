@@ -4,6 +4,14 @@
         <li><a href="{{ path('test') }}">Test page</a></li>
         <li><a href="{{ path('contact') }}">Contact us</a></li>
         <li><a href="{{ path('list') }}">List of Ideas</a></li>
-        <li><a href="{{ path('add') }}">Add your own idea !</a></li>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <li><a href="{{ path('add') }}">Add your own idea !</a></li>
+            <li><a href="{{ path('logout') }}">Disconnect</a></li>
+        {% else %}
+            <li><a href="{{ path('login') }}">Sign in</a></li>
+            <li><a href="{{ path('user_register') }}">Sign up</a></li>
+
+        {% endif %}
+
     </ul>
 </nav>

@@ -66,6 +66,19 @@ header nav a {
     margin-right: 10px;
 }
 
+footer nav ul {
+    margin: 5px 0;
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+footer nav a {
+    display: block;
+    padding: 5px 8px;
+    margin-right: 10px;
+}
+
 /**
 main
  */
