@@ -35,6 +35,9 @@ class User implements UserInterface, \Symfony\Component\Security\Core\User\Passw
     private $password;
 
 //not saved for the moment
+    /**
+     * @todo Create a real functioning roles system. For now, getRoles returns ["ROLE_USER"]
+     */
     private $roles;
 
     public function getId(): ?int
