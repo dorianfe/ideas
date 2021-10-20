@@ -4,7 +4,7 @@
     {% for idea in ideas %}
         <div>
             <a href="{{ path('detail', {'id': idea.id}) }}" title="More details on {{ idea.title }}">
-                <h5>{{ idea.category.name }}</h5>{{ idea.title }}
+                <h5>{{ idea.title }}</h5>In category: {{ idea.category.name }}
             </a>
 
         </div>

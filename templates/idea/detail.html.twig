@@ -2,9 +2,11 @@
 
 {% block main %}
     <h2>{{ idea.getTitle }}</h2>
-    <div> class="description"{{ idea.getDescription }}</div>
-    <div>{{ idea.getAuthor }}</div>
-    <div>{{ idea.getDateCreated|date("d/m/Y") }}</div>
+    <div class="description">{{ idea.getDescription }}</div>
+    <div>from: {{ idea.getAuthor }}</div>
+    <div>added: {{ idea.getDateCreated|date("d/m/Y") }}</div>
+    <div>category: {{ idea.category.getName()}}</div>
+
 
 {% endblock %}
 

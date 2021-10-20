@@ -33,7 +33,7 @@ class IdeaController extends AbstractController
         $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);
         $ideas = $ideaRepo->find($id);
 
-        if(empty($idea)){
+        if(!$ideas){
             throw $this->createNotFoundException();
         }
 
