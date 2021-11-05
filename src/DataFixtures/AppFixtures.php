@@ -13,8 +13,9 @@ class AppFixtures extends Fixture
 //        $category = new Category();
 //        $category->setName("sport");
 //        $manager->persist($category);
-        $categories = ["Sport", "Aventure", "caca"];
-        for ($i = 0; $i < 3; $i++) {
+        $categories = ["Travel", "Relationships", "Career", "Financial", "Entertainment", "Adventure", "Contribution", "Creativity", "Education", "Health", "Food"];
+        $nbCategories = count($categories);
+        for ($i = 0; $i < $nbCategories; $i++) {
             $category = new Category();
             $category->setName($categories[$i]);
             $manager->persist($category);
