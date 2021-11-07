@@ -8,6 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Table(name="app_user")
+ * @UniqueEntity(fields={"username", "mail"})
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User implements UserInterface, \Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface
