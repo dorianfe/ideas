@@ -96,6 +96,8 @@ h1 {
 footer
  */
 footer {
+    position: fixed;
+    bottom: 0;
     padding: 20px 0;
     text-align: center;
 }

@@ -5,11 +5,14 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="app_user")
- * @UniqueEntity(fields={"username", "mail"})
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields="username", message="this username is already taken.")
+ * @UniqueEntity(fields="mail", message="This email is already used.")
  */
 class User implements UserInterface, \Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface
 {
@@ -21,12 +24,16 @@ class User implements UserInterface, \Symfony\Component\Security\Core\User\Passw
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * 
+     * @ORM\Column(type="string", length=50, unique=true)
      */
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message = "{{ value }} is not a valid email."
+     * )
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $mail;
 

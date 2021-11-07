@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 class IdeaController extends AbstractController
 {
@@ -23,6 +24,28 @@ class IdeaController extends AbstractController
         return $this->render("idea/list.html.twig", [
             "ideas" => $ideas
         ]);
+    }
+
+//needed to get the current user
+/**
+     * @var Security
+     */
+    private $security;
+
+    public function __construct(Security $security)
+    {
+       $this->security = $security;
+    }
+
+/**
+ * @Route ("/list/{user}", name"userlist")
+ */
+    public function myList()
+    {
+
+        $user = $this->security->getUser();
+        $ideaRepo = $this->getDoctrine->getRepository(Idea::class);
+        ideas = $ideaRepo->find($user);
     }
 
     /**
