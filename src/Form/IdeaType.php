@@ -20,9 +20,6 @@ class IdeaType extends AbstractType
             ->add('description', null, [
                 "label" => "Describe your idea "
             ])
-            ->add('author', null, [
-                'label' => 'username '
-            ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name'

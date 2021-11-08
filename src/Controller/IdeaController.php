@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Core\User\User;
 
 class IdeaController extends AbstractController
 {
@@ -26,27 +26,6 @@ class IdeaController extends AbstractController
         ]);
     }
 
-//needed to get the current user
-/**
-     * @var Security
-     */
-    private $security;
-
-    public function __construct(Security $security)
-    {
-       $this->security = $security;
-    }
-
-/**
- * @Route ("/list/{user}", name"userlist")
- */
-    public function myList()
-    {
-
-        $user = $this->security->getUser();
-        $ideaRepo = $this->getDoctrine->getRepository(Idea::class);
-        ideas = $ideaRepo->find($user);
-    }
 
     /**
      * @Route ("/detail/{id}", name="detail", requirements={"id": "\d+"}, methods={"GET"})
@@ -72,8 +51,10 @@ class IdeaController extends AbstractController
         $this->denyAccessUnlessGranted("ROLE_USER");
 
         $idea = new Idea();
+        
         //Hydrate dateCreated field automatically for example, since this is not up to the user to fill.
         $idea->setDateCreated(new \DateTime());
+        $idea->setAuthor($this->getUser()->getUsername());
 
         $ideaform = $this->createForm(IdeaType::class, $idea);
 
@@ -91,7 +72,8 @@ class IdeaController extends AbstractController
         }
 
         return $this->render("idea/add.html.twig", [
-            "ideaForm" => $ideaform->createView()
+            "ideaForm" => $ideaform->createView(),
+            "idea" => $idea
         ]);
     }
 

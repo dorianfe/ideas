@@ -1,10 +1,11 @@
 {% extends 'layout.html.twig' %}
 {% block main %}
-    <h2>Add ideas:</h2>
+    <h2>Add an idea:</h2>
     {{ form_start(ideaForm) }}
     {{ form_widget(ideaForm) }}
     <button type="submit">Send</button>
     {{ form_end(ideaForm) }}
+    <p>Your username - {{idea.getAuthor}} - will appear with your idea once you have successfully submitted it.</p>
 {% endblock %}
 
 {% block title %}Add an idea! | {{ parent() }} {% endblock %}
