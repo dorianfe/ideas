@@ -35,6 +35,8 @@ class IdeaRepository extends ServiceEntityRepository
 
     }
 
+    
+
     // //DB request using Doctrine Query Language (dql)
     /*
         $em = $this->getEntityManager();

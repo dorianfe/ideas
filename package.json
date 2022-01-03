@@ -1,0 +1,19 @@
+{
+  "name": "ideas",
+  "version": "1.0.0",
+  "description": "Bucket-list website. Generic Symfony type website. Registered users can add an \"idea\"; something they would really love to do in their life. Each idea has a title, a description and belongs to a category. Submitted ideas can be viewed by unregistered users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dorianfe/ideas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dorianfe/ideas/issues"
+  },
+  "homepage": "https://github.com/dorianfe/ideas#readme"
+}

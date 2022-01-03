@@ -90,6 +90,7 @@ main {
 
 h1 {
     margin: 0;
+    font-family: 'Betty Noir', sans-serif;
 }
 
 /**
@@ -123,6 +124,11 @@ list & detail pages
 
 h5 {
     margin: 0;
+    font-family: 'Betty Noir', sans-serif;
+}
+
+h2 {
+    font-family: 'Betty Noir', sans-serif;
 }
 
 /**
@@ -132,12 +138,14 @@ form label {
     display: block;
     font-weight: bold;
     margin-bottom: 2px;
+    
 }
 
 form input, form textarea, form select {
     box-sizing: border-box;
     margin-bottom: 12px;
     min-width: 300px;
+    border-radius: 3rem;
 }
 
 form textarea {
@@ -145,7 +153,9 @@ form textarea {
 }
 
 form button {
-    padding: 5px 10px;
+    padding: 1.5rem;
+    border-radius: 3rem;
+
 }
 
 form ul {

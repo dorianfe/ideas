@@ -4,11 +4,11 @@
     {% for idea in ideas %}
         <div>
             <a href="{{ path('detail', {'id': idea.id}) }}" title="More details on {{ idea.title }}">
-                <h5>{{ idea.title }}</h5>In category: {{ idea.category.name }}
+                <h5>{{ idea.title }}</h5>
             </a>
-
+            In category: {{ idea.category.name }}
         </div>
     {% endfor %}
 {% endblock %}
 
-{% block title %} {% endblock %}
+{% block title %}Ideas | List{% endblock %}
