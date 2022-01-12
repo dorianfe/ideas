@@ -1,171 +1,103 @@
-body{
-    background-color: #deb887;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+/* stylelint-disable selector-list-comma-newline-after */
+
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.container {
-    min-width: 360px;
-    max-width: 1000px;
-    margin: auto;
-    padding: 10px 20px;
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-size: 2.25rem;
 }
 
-a {
-    text-decoration: none;
-    color: #000;
+.blog-header-logo:hover {
+  text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
 }
 
-.flashes .flash {
-    padding: 20px;
-    background-color: dodgerblue;
-    color: #FFF;
-    font-size: 24px;
-    margin: 10px 0;
-    text-align: center;
-    border-radius: 3px;
+.display-4 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
 }
 
-.flashes .flash-success {
-    background-color: #718C00;
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
 }
 
-.flashes .flash-error {
-    background-color: #AA3333;
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
-/**
-header
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+}
+
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+.blog-pagination > .btn {
+  border-radius: 2rem;
+}
+
+/*
+ * Blog posts
  */
-.site-title {
-    display: flex;
-    align-items: center;
-    font-size: 48px;
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
 }
 
-.site-title img {
-    height: 48px;
-    display: block;
-    margin-right: 5px;
-}
-
-header nav ul {
-    margin: 5px 0;
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-}
-
-header nav a {
-    display: block;
-    padding: 5px 8px;
-    margin-right: 10px;
-}
-
-footer nav ul {
-    margin: 5px 0;
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-}
-
-footer nav a {
-    display: block;
-    padding: 5px 8px;
-    margin-right: 10px;
-}
-
-/**
-main
+/*
+ * Footer
  */
-main {
-    padding: 30px 0;
-    border-top: 1px solid #D3D3D3;
-    border-bottom: 1px solid #D3D3D3;
+.blog-footer {
+  padding: 2.5rem 0;
+  color: #727272;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
 }
-
-h1 {
-    margin: 0;
-    font-family: 'Betty Noir', sans-serif;
-}
-
-/**
-footer
- */
-footer {
-    position: fixed;
-    bottom: 0;
-    padding: 20px 0;
-    text-align: center;
-}
-
-/**
-list & detail pages
- */
-.ideas-list a {
-    display: block;
-    border: 1px solid #D3D3D3;
-    padding: 10px 5px;
-    margin: 10px 0;
-}
-
-.idea-meta {
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-.idea-category {
-    margin-top: 10px;
-}
-
-h5 {
-    margin: 0;
-    font-family: 'Betty Noir', sans-serif;
-}
-
-h2 {
-    font-family: 'Betty Noir', sans-serif;
-}
-
-/**
-forms
- */
-form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 2px;
-    
-}
-
-form input, form textarea, form select {
-    box-sizing: border-box;
-    margin-bottom: 12px;
-    min-width: 300px;
-    border-radius: 3rem;
-}
-
-form textarea {
-    min-height: 70px;
-}
-
-form button {
-    padding: 1.5rem;
-    border-radius: 3rem;
-
-}
-
-form ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-form ul > li {
-    display: block;
-    font-weight: bold;
-    color: #AA3333;
+.blog-footer p:last-child {
+  margin-bottom: 0;
 }

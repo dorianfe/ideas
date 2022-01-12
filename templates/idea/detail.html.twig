@@ -1,11 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    <h2>{{ idea.getTitle }}</h2>
-    <div class="description">{{ idea.getDescription }}</div>
-    <div>category: {{ idea.category.getName()}}</div>
-    <div>from user: {{ idea.getAuthor }}</div>
-    <div>added: {{ idea.getDateCreated|date("d/m/Y") }}</div>
+    <div class="project__synopsis">
+    <h2 class="project__heading">{{ idea.getTitle }}</h2>
+    <div class="project__copy">{{ idea.getDescription }}</div>
+    <div class="project__tags">category {{ idea.category.getName()}}</div>
+    <div>from user {{ idea.getAuthor }}</div>
+    <div>added  {{ idea.getDateCreated|date("d/m/Y") }}</div>
+    </div>
     
 
 

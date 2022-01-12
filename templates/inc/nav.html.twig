@@ -1,17 +1,20 @@
-<nav>
-    <ul>
-        <li><a href="{{ path('home') }}">Home</a></li>
-        <li><a href="{{ path('test') }}">Test page</a></li>
-        <li><a href="{{ path('contact') }}">Contact us</a></li>
-        <li><a href="{{ path('list') }}">List of Ideas</a></li>
+<div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+        
+            <a class="p-2 link-secondary"><a href="{{ path('home') }}">Home</a>
+            <a class="p-2 link-secondary"><a href="{{ path('test') }}">Test page</a>
+            <a class="p-2 link-secondary"><a href="{{ path('contact') }}">Contact us</a>
+            <a class="p-2 link-secondary"><a href="{{ path('list') }}">List of Ideas</a>
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-            <li><a href="{{ path('add') }}">Add your own idea !</a></li>
-            <li><a href="{{ path('logout') }}">Disconnect</a></li>
+            <a class="p-2 link-secondary"><a href="{{ path('add') }}">Add your own idea !</a>
+            <a class="p-2 link-secondary"><a href="{{ path('logout') }}">Disconnect</a>
         {% else %}
-            <li><a href="{{ path('login') }}">Sign in</a></li>
-            <li><a href="{{ path('user_register') }}">Sign up</a></li>
+            <a class="p-2 link-secondary""><a href="{{ path('login') }}">Sign in</a>
+            <a class="p-2 link-secondary"><a href="{{ path('user_register') }}">Sign up</a>
 
         {% endif %}
 
-    </ul>
+    
 </nav>
+</div>
+

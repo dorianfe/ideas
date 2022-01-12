@@ -1,14 +1,18 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    <form method="post">
-        <label for="username">Username:</label>
-        <input type="text" name="_username" id="username">
+    <form class="form" method="post">
+        <div class="form__field">
+            <label for="username">Username:</label>
+            <input type="text" name="_username" id="username">
+        </div>
 
-        <label for="password">Password:</label>
-        <input type="password" name="_password" id="password">
+        <div class="form__field">
+            <label for="password">Password:</label>
+            <input type="password" name="_password" id="password">
+        </div>
 
-        <button type="submit">login</button>
+        <button class="btn btn--full-width" type="submit">login</button>
     </form>
 
 {% endblock %}
