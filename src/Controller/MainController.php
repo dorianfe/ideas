@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Idea;
+use App\Form\IdeaType;
+use Doctrine\ORM\EntityManagerInterface;
 
 class MainController extends AbstractController
 {
@@ -13,7 +16,13 @@ class MainController extends AbstractController
      */
     public function home()
     {
-        return $this->render("main/home.html.twig");
+       $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);  
+      $ideas = $ideaRepo->findBy([], ["id" => "DESC"], 1, 0);
+      
+
+       return $this->render("main/home.html.twig", [
+            "idea" => $ideas
+        ]);
     }
 
     /**

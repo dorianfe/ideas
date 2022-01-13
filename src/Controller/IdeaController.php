@@ -20,9 +20,11 @@ class IdeaController extends AbstractController
     {
       $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);  
       $ideas = $ideaRepo->findBy([], ["id" => "DESC"], 1, 0);
-      dump($ideas);
+      dd($ideas);
 
-       return $this->render("idea/home.html.twig", []);
+       return $this->render("idea/home.html.twig", [
+            "idea" => $ideas
+        ]);
     }
 
     /**
@@ -32,7 +34,7 @@ class IdeaController extends AbstractController
     {
         $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);
         $ideas = $ideaRepo->findIdeasAndCategory();
-
+        dd($ideas);
 
         return $this->render("idea/list.html.twig", [
             "ideas" => $ideas
