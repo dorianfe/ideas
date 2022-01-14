@@ -1,4 +1,4 @@
-<div class="nav-scroller py-1 mb-2">
+
     <nav class="nav d-flex justify-content-between">
         
             <a class="p-2 link-secondary"><a href="{{ path('home') }}">Home</a>
@@ -9,12 +9,12 @@
             <a class="p-2 link-secondary"><a href="{{ path('add') }}">Add your own idea !</a>
             <a class="p-2 link-secondary"><a href="{{ path('logout') }}">Disconnect</a>
         {% else %}
-            <a class="p-2 link-secondary""><a href="{{ path('login') }}">Sign in</a>
+            <a class="p-2 link-secondary"><a href="{{ path('login') }}">Sign in</a>
             <a class="p-2 link-secondary"><a href="{{ path('user_register') }}">Sign up</a>
 
         {% endif %}
 
     
 </nav>
-</div>
+
 

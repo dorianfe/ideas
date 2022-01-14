@@ -1,16 +1,25 @@
 {% extends 'layout.html.twig' %}
 {% block main %}
-    <h2 class="project__heading">Published ideas</h2>
+    <div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Published Ideas
+      </h3>
+    
+    <article class="blog-post">
     {% for idea in ideas %}
         <div>
             <a href="{{ path('detail', {'id': idea.id}) }}" title="More details on {{ idea.title }}">
-                <h5>{{ idea.title }}</h5>
+                <h2 class="blog-post-title">{{ idea.title }}</h2>
             </a>
-            <div class="project__tags">
-            In category: {{ idea.category.name }}
-            </div>
+            <p class="blog-post-meta">
+            {{ idea.category.name }}
+            </p>
         </div>
     {% endfor %}
+    </article>
+    </div>
+    </div>
 {% endblock %}
 
 {% block title %}Ideas | List{% endblock %}
