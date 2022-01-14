@@ -13,19 +13,7 @@ use Symfony\Component\Security\Core\User\User;
 class IdeaController extends AbstractController
 {
 
-    /**
-     * @Route ("/", name="home")
-     */
-    public function latest()
-    {
-      $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);  
-      $ideas = $ideaRepo->findBy([], ["id" => "DESC"], 1, 0);
-      dd($ideas);
-
-       return $this->render("idea/home.html.twig", [
-            "idea" => $ideas
-        ]);
-    }
+   
 
     /**
      * @Route ("/list", name="list")
@@ -34,8 +22,7 @@ class IdeaController extends AbstractController
     {
         $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);
         $ideas = $ideaRepo->findIdeasAndCategory();
-        dd($ideas);
-
+        
         return $this->render("idea/list.html.twig", [
             "ideas" => $ideas
         ]);

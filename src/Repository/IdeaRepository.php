@@ -25,9 +25,9 @@ class IdeaRepository extends ServiceEntityRepository
         //DB request using Query Builder
         $qb = $this->createQueryBuilder('i');
         $qb->andWhere('i.isPublished = true')
-            ->join('i.category', 'c')
-            ->addSelect('c')
-            ->addOrderBy('i.id', 'ASC');
+           ->join('i.category', 'c')
+           ->addSelect('c')
+           ->addOrderBy('i.id', 'ASC');
 
         $qb->setMaxResults(50);
         $query = $qb->getQuery();
