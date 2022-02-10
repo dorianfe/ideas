@@ -16,14 +16,14 @@ class MainController extends AbstractController
      */
     public function home()
     {
-       $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);  
-      $ideas = $ideaRepo->findBy([], ["id" => "DESC"], 1, 0);
-      
+     $ideaRepo = $this->getDoctrine()->getRepository(Idea::class);  
+     $ideas = $ideaRepo->findBy([], ["id" => "DESC"], 1, 0);
+     
 
-       return $this->render("main/home.html.twig", [
-            "idea" => $ideas
-        ]);
-    }
+     return $this->render("main/home.html.twig", [
+        "idea" => $ideas
+    ]);
+ }
 
     /**
      * @Route ("/test", name="test")
